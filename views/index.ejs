@@ -6,9 +6,10 @@
 		<title><%= title %></title>
 		<link
 			rel="shortcut icon"
-			href="/public/message-outline.svg"
+			href="message-outline.svg"
 			type="image/x-icon"
 		/>
+		<link rel="stylesheet" href="style.css" />
 	</head>
 	<body>
 		<ul>
@@ -20,5 +21,6 @@
 			</li>
 			<% }); %>
 		</ul>
+		<%- include('footer') %>
 	</body>
 </html>
