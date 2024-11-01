@@ -1,15 +1,27 @@
-<h2>Add New Message</h2>
-<form action="/new" method="post">
-	<label for="">
-		Name:
-		<input type="text" name="name" />
-	</label>
-	<label for="">
-		Message:
-		<input type="text" name="message" />
-	</label>
-	<button type="submit">Submit</button>
-	<a href="/">
-		<button>Back</button>
-	</a>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>New Message</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<%- include('header', {title: 'Add New Message', path:'/', button:
+		'Back'}) %>
+		<form action="/new" method="post">
+			<label for="">
+				Name:
+				<input type="text" name="name" />
+			</label>
+			<label for="">
+				Message:
+				<input type="text" name="message" />
+			</label>
+			<div class="buttons">
+				<button type="submit">Submit</button>
+			</div>
+		</form>
+		<%- include('footer') %>
+	</body>
+</html>

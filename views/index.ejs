@@ -12,7 +12,8 @@
 		<link rel="stylesheet" href="style.css" />
 	</head>
 	<body>
-		<%- include('header') %>
+		<%- include('header', {title: 'Mini Message Board', path:'/new', button:
+		'New Message'}) %>
 		<main>
 			<ul>
 				<% messages.forEach( (message) => { %>
