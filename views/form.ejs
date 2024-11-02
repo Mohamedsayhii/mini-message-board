@@ -6,22 +6,24 @@
 		<title>New Message</title>
 		<link rel="stylesheet" href="style.css" />
 	</head>
+	<%- include('header', {title: 'Add New Message', path:'/', button:'Back'})
+	%>
 	<body>
-		<%- include('header', {title: 'Add New Message', path:'/', button:
-		'Back'}) %>
 		<form action="/new" method="post">
-			<label for="">
-				Name:
-				<input type="text" name="name" />
-			</label>
-			<label for="">
-				Message:
-				<input type="text" name="message" />
-			</label>
-			<div class="buttons">
-				<button type="submit">Submit</button>
-			</div>
+			<input
+				type="text"
+				class="form-input"
+				name="name"
+				placeholder="Name"
+			/>
+			<input
+				type="text"
+				class="form-input"
+				name="message"
+				placeholder="Message"
+			/>
+			<input type="submit" value="Submit Message" />
 		</form>
-		<%- include('footer') %>
 	</body>
+	<%- include('footer') %>
 </html>
