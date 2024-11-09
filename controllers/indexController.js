@@ -1,40 +1,12 @@
-const messages = [
-	{
-		text: 'Holà Cabrón!',
-		user: 'Armando',
-		added: new Intl.DateTimeFormat('en-GB', {
-			weekday: 'long',
-			day: '2-digit',
-			month: 'long',
-			year: 'numeric',
-		}).format(new Date()),
-	},
-	{
-		text: 'Hello World!',
-		user: 'Charles',
-		added: new Intl.DateTimeFormat('en-GB', {
-			weekday: 'long',
-			day: '2-digit',
-			month: 'long',
-			year: 'numeric',
-		}).format(new Date()),
-	},
-];
+const db = require('../database/queries');
 
-exports.indexMessagesGet = (req, res) =>
+exports.indexMessagesGet = async (req, res) => {
+	const messages = await db.getAllMessages();
 	res.render('index', { title: 'Mini Message Board', messages: messages });
+};
 
-exports.indexMessagesPost = (req, res) => {
+exports.indexMessagesPost = async (req, res) => {
 	if (req.body.message && req.body.name)
-		messages.push({
-			text: req.body.message,
-			user: req.body.name,
-			added: new Intl.DateTimeFormat('en-GB', {
-				weekday: 'long',
-				day: '2-digit',
-				month: 'long',
-				year: 'numeric',
-			}).format(new Date()),
-		});
+		db.insertMessage(req.body.name, req.body.message);
 	res.redirect('/');
 };
