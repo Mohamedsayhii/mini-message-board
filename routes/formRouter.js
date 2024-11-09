@@ -1,7 +1,7 @@
 const { Router } = require('express');
-
+const { formTemplateGet } = require('../controllers/formController');
 const formRouter = Router();
 
-formRouter.get('/', (req, res) => res.render('form'));
+formRouter.get('/', formTemplateGet);
 
 module.exports = formRouter;
